@@ -1,0 +1,139 @@
+@use 'variables.sass'
+
+.input-form
+    position: fixed
+    top: 0
+    left: 0
+    width: 100%
+    height: 100%
+    background-color: rgb(0 0 0 / 73%)
+    backdrop-filter: blur(4px)
+    z-index: 3
+    display: flex
+    justify-content: center
+    align-items: center
+    opacity: 0
+    pointer-events: none
+    transition: opacity .5s
+    color: white
+    cursor: pointer
+
+    &__wrapper
+        position: relative
+        display: flex
+        flex-direction: column
+        align-items: center
+        width: 50%
+        max-width: 570px
+        padding: 25px
+        background-color: #000000a3
+        border-radius: 5px
+        z-index: 4
+
+        &__label
+            width: 100%
+            max-width: 500px
+            margin: 0 20px
+            margin-top: 10px
+            padding: 0 10px
+            text-align: center
+            font-weight: 600
+            font-size: 1.2em
+            text-transform: uppercase
+
+
+        &__input
+            width: 100%
+            max-width: 500px
+            margin: 0 20px
+            margin-bottom: 10px
+            border: none
+            border-radius: 8px
+            padding: 10px
+            font-size: 1.1em
+            box-shadow: inset 0px 0px 12px #053c00
+            background-color: #29e918
+            max-height: 600px
+            resize: none
+
+            &:focus-visible
+                outline: 0
+
+            &--button
+                @extend .input-form__wrapper__input
+                margin: 5px 15px
+                padding: 10px
+                width: 22%
+                max-width: 110px
+                cursor: pointer
+                text-transform: uppercase
+
+                &:hover
+                    transform: scale(1.05)
+                    background-color: #2cf11a
+
+                @media only screen and (max-width: 800px)
+                    width: 50%
+                    max-width: none
+
+        > div
+            display: flex
+            justify-content: center
+            align-items: center
+            width: 100%
+            max-width: 500px
+            margin: 10px 0
+
+            @media only screen and (max-width: 800px)
+                flex-direction: column-reverse
+
+        @media only screen and (max-width: 800px)
+            width: 85%
+
+    &--active
+        @extend .input-form
+        opacity: 1
+        pointer-events: all
+
+.footer
+    display: flex
+    justify-content: space-between
+    border-top: 1px solid variables.$colorMain
+    padding: 10px 10%
+    margin: 0 10%
+    margin-top: 20px
+
+    &__button
+        cursor: pointer
+        border: none
+        background-color: variables.$colorWhite
+        border-radius: 8px
+        text-transform: uppercase
+        font-size: 1.1em
+        box-shadow: inset 0 0 5px grey
+        max-height: 45px
+        padding: 12px
+        margin: auto 0
+
+        &:hover
+            transform: scale(1.05)
+            border: 1px solid variables.$colorMain
+
+    p
+        text-align: center
+
+    &__links
+        display: flex
+        flex-direction: column
+
+        &__image
+            height: 1em
+
+        > a
+            text-align: center
+
+    @media only screen and (max-width: 520px)
+        flex-direction: column
+
+        &__button
+            margin: 20px 0

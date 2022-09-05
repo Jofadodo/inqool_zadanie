@@ -1,0 +1,44 @@
+@use 'variables.sass'
+
+.skills
+    margin-top: 50px
+    margin-bottom: 20px
+    padding-bottom: 10px
+    width: 88%
+    height: 100%
+    @include variables.marginMiddle
+
+    &__block 
+        display: flex
+        flex-direction: row
+        width: 100%
+        @include variables.scrollBars
+        padding-bottom: 5px
+
+        &__box
+            width: fit-content
+            padding: 12px 20px
+            margin: 0 10px
+            height: auto
+            text-align: center
+            cursor: pointer
+
+            &--active
+                @extend .skills__block__box
+                // background-color: variables.$colorMain
+                border-bottom: 5px solid variables.$colorMain
+                border-radius: 3px
+                // color: variables.$colorWhite
+
+    &__description
+        position: relative
+        left: 0
+        margin-top: 8px
+        padding: 20px
+        padding-top: 10px
+        border-left: 1px solid grey
+        border-bottom: 1px solid grey
+
+    @media only screen and (max-width: 550px)
+        margin-top: 35px
+        width: 100%
