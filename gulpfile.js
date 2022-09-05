@@ -4,6 +4,8 @@ const cleanCSS = require('gulp-clean-css');
 const webpack = require('webpack-stream');
 const server = require('browser-sync').create();
 const argv = require('yargs').argv;
+const concat = require('gulp-concat');
+const minify = require('gulp-minify');
 
 const isProduction = (argv.production === undefined) ? false : true;
 
@@ -23,20 +25,29 @@ gulp.task('sass', function () {
         .pipe(server.stream());
 });
 
+// gulp.task('js', function () {
+//     return gulp
+//         .src('src/js/client.js')
+//         .pipe(
+//             webpack({
+//                 mode: 'production',
+//                 output: {
+//                     filename: 'client.js',
+//                 },
+//                 externals: {
+//                     jquery: 'jQuery',
+//                 }
+//             })
+//         )
+//         .pipe(gulp.dest('dist/js'))
+//         .pipe(server.stream());
+// });
+
 gulp.task('js', function () {
     return gulp
-        .src('src/js/client.js')
-        .pipe(
-            webpack({
-                mode: isProduction ? "production" : 'development',
-                output: {
-                    filename: 'client.js',
-                },
-                externals: {
-                    jquery: 'jQuery',
-                },
-            })
-        )
+        .src('src/js/*.js')
+        .pipe(concat('client.js'))
+        .pipe(minify())
         .pipe(gulp.dest('dist/js'))
         .pipe(server.stream());
 });

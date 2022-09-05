@@ -1,12 +1,3 @@
-// document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-//     anchor.addEventListener('click', function (e) {
-//         e.preventDefault();
-//         document.querySelector(this.getAttribute('href')).scrollIntoView({
-//             behavior: 'smooth'
-//         });
-//     });
-// });
-
 var menuButton = document.getElementById("menuButton");
 var navigation = document.getElementsByClassName('navigation__link-list')[0];
 var form = document.getElementById('form');

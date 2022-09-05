@@ -109,6 +109,8 @@
     "graceful-fs": "^4.2.10",
     "gulp-clean-css": "^4.3.0",
     "gulp-cli": "^2.3.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-minify": "^3.1.0",
     "gulp-sass": "^5.1.0",
     "gulplog": "^1.0.0",
     "has": "^1.0.3",
